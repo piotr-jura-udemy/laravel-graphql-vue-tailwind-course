@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
         Topic::create(['name' => 'Useful Links', 'slug' => 'links']);
         Topic::create(['name' => 'Guides & Tutorials', 'slug' => 'tutorials']);
 
-        factory(Post::class, 20);
+        factory(Post::class, 20)->create();
     }
 }
