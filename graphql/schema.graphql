@@ -2,14 +2,19 @@
 scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 
 "A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
-scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+scalar DateTime
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
 
 "A datetime and timezone string in ISO 8601 format `Y-m-dTH:i:sO`, e.g. `2020-04-20T13:53:12+02:00`."
-scalar DateTimeTz @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTimeTz")
+scalar DateTimeTz
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTimeTz")
 
 type Query {
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID @eq): User @find
+    posts: [Post!]! @all
+    post(id: ID! @eq): Post! @find
+    topic(slug: String! @eq): Topic @find
 }
 
 type User {
@@ -18,4 +23,23 @@ type User {
     email: String!
     created_at: DateTime!
     updated_at: DateTime!
+    posts: [Post!]!
+}
+
+type Topic {
+    id: ID!
+    name: String!
+    slug: String!
+    posts: [Post!]!
+}
+
+type Post {
+    id: ID!
+    title: String!
+    content: String!
+    lead: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+    author: User!
+    topic: Topic!
 }
