@@ -30,11 +30,13 @@ class AddForeignKeysToPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign(['topic_id']);
+            // $table->dropForeign(['topic_id']);
             $table->dropColumn('topic_id');
+        });
 
-            $table->dropForeign(['author_id']);
-            $table->dropColumn('topic_id');
+        Schema::table('posts', function (Blueprint $table) {
+            // $table->dropForeign(['author_id']);
+            $table->dropColumn('author_id');
         });
     }
 }
