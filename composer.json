@@ -13,6 +13,7 @@
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
+        "laravel/telescope": "3.5.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "mll-lab/laravel-graphql-playground": "2.1.0",
