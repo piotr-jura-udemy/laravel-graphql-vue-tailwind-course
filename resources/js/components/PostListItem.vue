@@ -8,6 +8,7 @@
     <div class="text-sm text-gray-600">By Piotr Jura&nbsp;in Links&nbsp;• 3 hours ago</div>
   </div>
 </template>
+
 <script>
 export default {
   props: {
