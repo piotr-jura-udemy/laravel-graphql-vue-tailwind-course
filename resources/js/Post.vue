@@ -3,7 +3,11 @@
     <div v-if="$apollo.loading">Loading...</div>
     <div v-else>
       <div class="text-lg text-gray-600">
-        By {{ post.author.name }} in
+        By
+        <router-link
+          :to="{name: 'author', params: {id: post.author.id}}"
+          class="underline hover:text-black"
+        >{{ post.author.name }}</router-link>in
         <router-link
           :to="{name: 'topic', params: {slug: post.topic.slug}}"
           class="underline hover:text-black"
@@ -23,7 +27,13 @@
           />
         </div>
         <div class="flex flex-col justify-center">
-          <div class="text-xl text-gray-600">Written by {{ post.author.name }}</div>
+          <div class="text-xl text-gray-600">
+            Written by
+            <router-link
+              :to="{name: 'author', params: {id: post.author.id}}"
+              class="underline hover:text-black"
+            >{{ post.author.name }}</router-link>
+          </div>
           <div class="text-gray-600">
             Published in
             <router-link
