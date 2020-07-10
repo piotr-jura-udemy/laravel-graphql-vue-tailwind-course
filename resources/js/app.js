@@ -5,6 +5,7 @@ import VueRouter from 'vue-router';
 import './bootstrap';
 import Post from './Post';
 import PostList from './PostList';
+import TopicPostList from './TopicPostList';
 
 window.Vue = Vue;
 Vue.use(VueRouter);
@@ -19,6 +20,14 @@ const routes = [
         path: '/post/:id',
         name: 'post',
         component: Post
+    },
+    {
+        path: '/topics/:slug',
+        name: 'topic',
+        component: TopicPostList
+    },
+    {
+        path: '/'
     }
 ];
 
