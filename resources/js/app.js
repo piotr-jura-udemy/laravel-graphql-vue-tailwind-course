@@ -1,4 +1,5 @@
 import ApolloClient from 'apollo-boost';
+import moment from "moment";
 import Vue from 'vue';
 import VueApollo from 'vue-apollo';
 import VueRouter from 'vue-router';
@@ -48,6 +49,10 @@ const router = new VueRouter({
     mode: 'history',
     routes
 });
+
+
+Vue.filter("timeago", value => moment(value).fromNow());
+Vue.filter("longDate", value => moment(value).format("MMMM Do YYYY"));
 
 const app = new Vue({
     el: '#app',
