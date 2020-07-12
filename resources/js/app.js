@@ -5,6 +5,7 @@ import VueApollo from 'vue-apollo';
 import VueRouter from 'vue-router';
 import AuthorPostList from './AuthorPostList';
 import './bootstrap';
+import NotFound from './NotFound';
 import Post from './Post';
 import PostList from './PostList';
 import TopicPostList from './TopicPostList';
@@ -36,9 +37,7 @@ const routes = [
     {
         path: '*',
         name: '404',
-        component: {
-            template: '<div>Not found</div>'
-        }
+        component: NotFound
     }
 ];
 
