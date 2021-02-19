@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-4 w-full md:w-3/4 lg:w-3/5 xl:w-1/2 mt-20">
+  <div class="container mx-auto px-4 w-full md:w-3/4 lg:w-3/5 xl:w-1/2 my-12">
     <div v-if="$apollo.loading">Loading...</div>
     <div v-else>
       <div class="text-lg text-gray-600 dark:text-gray-300">
