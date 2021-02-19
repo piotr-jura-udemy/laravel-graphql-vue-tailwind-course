@@ -1,8 +1,11 @@
 <template>
   <div class="container mx-auto px-4 w-full md:w-3/4 lg:w-3/5 xl:w-1/2 my-20">
-    <h2 class="text-4xl">
-      <router-link :to="{name: 'index'}" class="text-gray-600 hover:underline">All Posts</router-link>
-      <span class="text-gray-600">/</span>
+    <h2 class="text-4xl dark:text-gray-200">
+      <router-link
+        :to="{name: 'index'}"
+        class="text-gray-600 dark:text-gray-400 hover:underline"
+      >All Posts</router-link>
+      <span class="text-gray-600 dark:text-gray-400">/</span>
       {{ topic.name }}
     </h2>
     <div v-if="$apollo.loading"></div>

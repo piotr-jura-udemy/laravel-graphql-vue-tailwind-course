@@ -1,3 +1,5 @@
 {
-    "window.zoomLevel": 2
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Outrun Electric",
+    "editor.fontFamily": "'Operator Mono'"
 }

@@ -14,54 +14,53 @@ window.Vue = Vue;
 Vue.use(VueRouter);
 
 const routes = [
-    {
-        path: '/',
-        name: 'index',
-        component: PostList
-    },
-    {
-        path: '/post/:id',
-        name: 'post',
-        component: Post
-    },
-    {
-        path: '/topics/:slug',
-        name: 'topic',
-        component: TopicPostList
-    },
-    {
-        path: '/authors/:id',
-        name: 'author',
-        component: AuthorPostList
-    },
-    {
-        path: '*',
-        name: '404',
-        component: NotFound
-    }
+  {
+    path: '/',
+    name: 'index',
+    component: PostList
+  },
+  {
+    path: '/post/:id',
+    name: 'post',
+    component: Post
+  },
+  {
+    path: '/topics/:slug',
+    name: 'topic',
+    component: TopicPostList
+  },
+  {
+    path: '/authors/:id',
+    name: 'author',
+    component: AuthorPostList
+  },
+  {
+    path: '*',
+    name: '404',
+    component: NotFound
+  }
 ];
 
 Vue.use(VueApollo);
 const apolloClient = new ApolloClient({
-    // You should use an absolute URL here
-    uri: 'http://127.0.0.1:8000/graphql'
+  // You should use an absolute URL here
+  uri: window.GQL_URI
 });
 
 const apolloProvider = new VueApollo({
-    defaultClient: apolloClient,
+  defaultClient: apolloClient,
 });
 
 const router = new VueRouter({
-    mode: 'history',
-    routes
+  mode: 'history',
+  routes
 });
-
 
 Vue.filter("timeago", value => moment(value).fromNow());
 Vue.filter("longDate", value => moment(value).format("MMMM Do YYYY"));
 
 const app = new Vue({
-    el: '#app',
-    apolloProvider,
-    router
+  el: '#app',
+  apolloProvider,
+  router
 });

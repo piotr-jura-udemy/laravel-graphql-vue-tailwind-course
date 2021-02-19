@@ -12,10 +12,11 @@ const mix = require('laravel-mix');
  */
 
 mix.postCss('resources/css/app.css', 'public/css', [
-    require('tailwindcss'),
-])
+  require('tailwindcss'),
+]);
 mix.js('resources/js/app.js', 'public/js')
+  .vue({ version: 2 });
 
 if (mix.inProduction()) {
-    mix.version()
+  mix.version()
 }
