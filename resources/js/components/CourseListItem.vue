@@ -1,16 +1,16 @@
 <template>
   <div class="border-gray-100 dark:text-gray-50 rounded-md p-6">
     <div
-      class="text-base lg:text-xl text-gray-600 dark:text-gray-100 font-semibold pb-4"
+      class="text-base md:text-xl lg:text-2xl text-gray-600 dark:text-gray-100 font-semibold pb-4"
     >{{ title }}</div>
-    <div class="text-gray-600 dark:text-gray-300 pb-4 flex text-sm lg:text-base">
-      <img :src="'/storage/logos/' + logo" alt="Author avatar" class="w-1/4 h-1/4 mr-4 p-2" />
-      <div>
+    <div class="text-gray-600 dark:text-gray-300 text-sm lg:text-base">
+      <img :src="'/storage/logos/' + logo" alt="Author avatar" class="w-full h-full" />
+      <div class="mt-8">
         <div>{{ desc }}</div>
         <div class="text-indigo-400">Learn more! →</div>
       </div>
     </div>
-    <div class="flex space-x-2 text-xs lg:text-sm">
+    <div class="flex space-x-4 text-base lg:text-lg mt-8">
       <div class="text-gray-600 dark:text-gray-300 flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
