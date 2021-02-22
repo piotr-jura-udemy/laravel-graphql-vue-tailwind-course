@@ -12,7 +12,7 @@ scalar DateTimeTz
 type Query {
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID! @eq): User @find
-    posts: [Post!]! @all
+    posts: [Post!]! @all @orderBy(column: "created_at", direction: "DESC")
     post(id: ID! @eq): Post! @find
     topic(slug: String! @eq): Topic @find
 }

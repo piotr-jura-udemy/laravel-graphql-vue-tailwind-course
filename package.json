@@ -16,13 +16,17 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@tailwindcss/forms": "^0.2.1",
         "apollo-boost": "^0.4.9",
         "graphql": "^15.5.0",
         "graphql-tag": "^2.11.0",
+        "highlight.js": "^10.6.0",
         "moment": "^2.29.1",
+        "postcss": "^8.1.2",
         "tailwindcss": "^2.0.3",
         "vue-apollo": "^3.0.7",
-        "vue-router": "^3.5.1",
-        "postcss": "^8.1.2"
+        "vue-highlight.js": "^3.1.0",
+        "vue-highlightjs": "^1.3.3",
+        "vue-router": "^3.5.1"
     }
 }

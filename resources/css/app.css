@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: 'Inter', sans-serif;
+}
+
 .text-shadow {
     text-shadow: 2px 2px 0 rgba(255, 255, 255, 1);
 }
