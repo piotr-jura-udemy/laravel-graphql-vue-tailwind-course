@@ -12,9 +12,13 @@ scalar DateTimeTz
 type Query {
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID! @eq): User @find
-    posts: [Post!]! @all @orderBy(column: "created_at", direction: "DESC")
+    posts: [Post!]! @orderBy(column: "created_at", direction: "DESC") @paginate(defaultCount: 10)
     post(id: ID! @eq): Post! @find
     topic(slug: String! @eq): Topic @find
+}
+
+type Mutation {
+  createLike(input: CreateLikeInput! @spread): Like @create
 }
 
 type User {
@@ -43,4 +47,18 @@ type Post {
     updated_at: DateTime!
     author: User! @belongsTo
     topic: Topic! @belongsTo
+    likes: [Like!]!
+}
+
+type Like {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  likeable_id: ID!
+  likeable_type: String!
+}
+
+input CreateLikeInput {
+    likeable_id: ID!
+    likeable_type: String!
 }

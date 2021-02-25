@@ -15,6 +15,7 @@ import NotFound from './NotFound';
 import Post from './Post';
 import PostList from './PostList';
 import TopicPostList from './TopicPostList';
+
 hljs.registerLanguage('javascript', javascript);
 
 window.Vue = Vue;
@@ -70,7 +71,7 @@ const router = new VueRouter({
     }
 
     if (to.hash) {
-      return { selector: to.hash, behavior: 'smooth' };
+      return { selector: to.hash, behavior: 'smooth', offset: { y: 20 } };
     }
 
     return false;
@@ -100,7 +101,7 @@ export const getDarkMode = () => {
 }
 
 export const setDarkMode = (isDark) => {
-  window.localStorage.setItem("darkMode", isDark ? 1 : 0);
+  window.localStorage.setItem("darkMode", (isDark ? 1 : 0).toString());
 }
 
 Vue.component('DarkMode', DarkMode);

@@ -1,0 +1,95 @@
+<h2 class="text-2xl font-medium text-gray-700 dark:text-gray-200" id="1">Step 1 - Installing a new Laravel version</h2>
+<div>
+  With this type of relation, we don't have an example inside the application we'll built, but I've made a separate
+  module you can download to see how the relation looks like. Do it now, and follow the instructions.
+
+  You need to enable to school module in the AppModule, and add two entities to the TypeORM module config.
+
+  As a reminder, many to many is a relation when entity A can be related to many B entities, but also B can be related
+  to many A enitites. In our example mode, we have a Teacher and Subject. We assume 1 teacher can teach more than 2
+  subjects, and of course, 1 subject at school is often teached by more than 1 teacher.
+
+  To define this relationship you need to add <code class="bg-indigo-100 p-1 rounded-md text-xl">@ManyToMany</code> only
+  on 1 of the entities. Then, you'd only be able to fetch related entities using this Entity. The `@JoinTable` is
+  neccessary.
+
+  However, it's probably more convienient to add the `@ManyToMany` on both entities. Remember, the `@JoinTable`
+  decorator goes only on one entity.
+
+  If you've properly registered the module, you can take a look at the database structure. You should notice 3 new
+  tables, not 2. The `teacher_subjects_subject` is the table that holds relations between the 2 entities. This table
+  name is configurable using the `name` property of the `@JoinTable` options. Again, you might want or need to configure
+  it, especially if you're working with a pre-existing database.
+
+  Then, `joinColumn` sets the options for the owning side, Teacher in our case - as a reminder, Teacher is the owning
+  side as it has the `@JoinTable` decorator. `name` is the column name in the join table, `referencedColumnName` is the
+  name of the column to point to in the `teacher` table.
+
+  You can configure the same for the other side, using the `inverseJoinColumn`.
+</div>
+
+<h2 class="text-2xl font-medium" id="2">Step 2 - Setting up everything what's needed</h2>
+<div>
+  The third way, is to use the `cascade` option of the relation. When you you have an Event with related Attendees,
+  fetched eagerly or explicitly, it feels natural to add an `Attendee` to `attendees` property array and just save an
+  `Event`. This won't save the attendees though, unless you set the cascade on the relation to true, or list all
+  possible cascade options in an array.
+
+  Note, this is not equal to database level cascading - this is a TypeORM only thing. For those of you not well-versed
+  with databases, cascading is a feature allowing you, for example to remove a table row and trigger the removal of all
+  its related rows from different related tables.
+
+  <pre><code class="text-xl">import Vue from 'vue';
+import VueHighlightJS from 'vue-highlight.js';
+import 'highlight.js/styles/default.css';
+import App from './App';
+
+Vue.use(VueHighlightJS, {
+	// Register only languages that you want
+	languages: {
+		css,
+		javascript,
+		vue
+	}
+});
+
+new Vue({
+	el: '#app',
+	render: h => h(App)
+});</code></pre>
+
+  If we set this option to true, which, let me say it again is not a database level CASCADE, it's just for TypeORM,
+  everytime you add or remove relations on entity and them save the main entity, TypeORM will perform all `INSERTs`,
+  `UPDATEs` and `REMOVALs` on the main entity and related entities.
+</div>
+
+<h2 class="text-2xl font-medium" id="3">Step 3 - Getting it all ready</h2>
+<div>
+  Do it with extra caution and consideration. This has a performance cost. Making all relations eager, without a good
+  reason, can quickly spiral out of control.
+
+  Even when the relation is configured as eager loading, you can skip it in the find and findOne methods, by setting
+  `loadEagerRelations` to `false`.
+
+  If the relation does not load eagerly, you can still load the relations you need, using the `relations` property. It's
+  an array of strings, specify the Entity relation property name there, like `attendees.`
+
+  <pre><code class="text-xl">import Vue from 'vue';
+import VueHighlightJS from 'vue-highlight.js';
+import 'highlight.js/styles/default.css';
+import App from './App';
+
+Vue.use(VueHighlightJS, {
+	// Register only languages that you want
+	languages: {
+		css,
+		javascript,
+		vue
+	}
+});
+
+new Vue({
+	el: '#app',
+	render: h => h(App)
+});</code></pre>
+</div>

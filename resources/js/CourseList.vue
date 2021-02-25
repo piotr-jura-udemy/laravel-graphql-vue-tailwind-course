@@ -6,11 +6,11 @@
         desc="Learn Laravel fundamentals and more, build a blog application with tags, top posts, images, avatars, translations and more!"
         time="33"
         lessons="201"
-        logo="master-laravel.gif"
+        logo="master-laravel.png"
       ></course-list-item>
 
       <course-list-item
-        title="Laravel with Vue.js - Booking Portal App"
+        title="Laravel REST with Vue.js"
         desc="Learn how to mix Laravel with Vue. Build a hotel booking app with user accounts, reviews and owner panel."
         time="18"
         lessons="101"

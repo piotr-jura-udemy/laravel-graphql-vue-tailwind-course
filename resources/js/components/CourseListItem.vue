@@ -10,7 +10,7 @@
         <div class="text-indigo-400">Learn more! →</div>
       </div>
     </div>
-    <div class="flex space-x-4 text-base lg:text-lg mt-8">
+    <div class="flex space-x-2 text-sm md:text-base mt-8">
       <div class="text-gray-600 dark:text-gray-300 flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -41,6 +41,7 @@
         </svg>
         {{ lessons }} Lessons
       </div>
+      <div class="p-1 bg-indigo-100 rounded-md">Intermediate</div>
     </div>
   </div>
 </template>

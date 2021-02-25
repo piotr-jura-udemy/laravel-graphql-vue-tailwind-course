@@ -8,8 +8,8 @@
       <span class="text-gray-600 dark:text-gray-400" v-if="!$apollo.loading">/</span>
       <span v-if="!$apollo.loading">{{ user.name }}</span>
     </h2>
-    <div v-if="$apollo.loading"></div>
 
+    <PostListLoader v-if="$apollo.loading"></PostListLoader>
     <div v-else>
       <PostListItem v-for="post in user.posts" :key="post.id" :post="post" class="mt-10"></PostListItem>
     </div>
@@ -19,10 +19,12 @@
 <script>
 import gql from "graphql-tag";
 import PostListItem from "./components/PostListItem";
+import PostListLoader from "./loaders/PostListLoader";
 
 export default {
   components: {
-    PostListItem
+    PostListItem,
+    PostListLoader
   },
   apollo: {
     user: {

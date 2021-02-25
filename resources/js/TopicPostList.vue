@@ -1,15 +1,17 @@
 <template>
-  <div class="container mx-auto px-4 w-full md:w-3/4 lg:w-3/5 xl:w-1/2 my-12">
+  <div class="container mx-auto px-4 w-full md:w-3/4 lg:w-3/5 xl:w-1/2 my-12" id="top">
     <h2 class="text-4xl dark:text-gray-200">
       <router-link
         :to="{name: 'index'}"
         class="text-gray-600 dark:text-gray-400 hover:underline"
       >All Posts</router-link>
       <span class="text-gray-600 dark:text-gray-400">/</span>
-      {{ topic.name }}
-    </h2>
-    <div v-if="$apollo.loading"></div>
 
+      <span v-if="!$apollo.loading">{{ topic.name }}</span>
+      <div class="w-16 h-8 bg-gray-100 dark:bg-gray-700 rounded mb-4 inline" v-else></div>
+    </h2>
+
+    <PostListLoader v-if="$apollo.loading"></PostListLoader>
     <div v-else>
       <PostListItem v-for="post in topic.posts" :key="post.id" :post="post" class="mt-10"></PostListItem>
     </div>
@@ -19,10 +21,12 @@
 <script>
 import gql from "graphql-tag";
 import PostListItem from "./components/PostListItem";
+import PostListLoader from "./loaders/PostListLoader";
 
 export default {
   components: {
-    PostListItem
+    PostListItem,
+    PostListLoader
   },
   apollo: {
     topic: {
