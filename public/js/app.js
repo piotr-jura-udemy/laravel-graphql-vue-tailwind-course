@@ -5846,6 +5846,16 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5862,7 +5872,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
   },
   apollo: {
     post: {
-      query: graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        query($id: ID!) {\n          post(id: $id) {\n            id\n            title\n            content\n            created_at\n            updated_at\n            author {\n              id\n              name\n              avatar\n            }\n            topic {\n              name\n              slug\n            }\n            likes {\n              created_at\n            }\n          }\n        }\n      "]))),
+      query: graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        query($id: ID!) {\n          post(id: $id) {\n            id\n            title\n            content\n            created_at\n            updated_at\n            author {\n              id\n              name\n              avatar\n            }\n            topic {\n              name\n              slug\n            }\n            likes {\n              created_at\n            }\n            related {\n              id\n              title\n            }\n          }\n        }\n      "]))),
       variables: function variables() {
         return {
           id: this.$route.params.id
@@ -6113,6 +6123,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["title", "desc", "time", "lessons", "logo"]
 });
@@ -6285,92 +6296,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var timeout = null;
 var els = [];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      topicsMenu: false,
-      coursesMenu: false
+      topicsMenu: false
     };
   },
   directives: {
@@ -6381,7 +6313,7 @@ var els = [];
       this.coursesMenu = false;
       clearTimeout(timeout);
       this.hideSticky();
-      this.topicsMenu = true;
+      this.topicsMenu = !this.topicsMenu;
     },
     closeTopicsMenu: function closeTopicsMenu() {
       var _this = this;
@@ -6393,29 +6325,9 @@ var els = [];
         _this.showSticky();
       }, 500);
     },
-    showCoursesMenu: function showCoursesMenu() {
-      this.topicsMenu = false;
-      clearTimeout(timeout);
-      this.hideSticky();
-      this.coursesMenu = true;
-    },
-    closeCoursesMenu: function closeCoursesMenu() {
-      var _this2 = this;
-
-      console.log("hide");
-      timeout = setTimeout(function () {
-        _this2.coursesMenu = false;
-
-        _this2.showSticky();
-      }, 500);
-    },
     closeTopicsMenuNow: function closeTopicsMenuNow() {
       console.log("hide now");
       this.topicsMenu = false;
-    },
-    closeCoursesMenuNow: function closeCoursesMenuNow() {
-      console.log("hide now");
-      this.coursesMenu = false;
     },
     hideSticky: function hideSticky() {
       if (0 === els.length) {
@@ -101984,7 +101896,7 @@ var render = function() {
         [
           _c("course-list-item", {
             attrs: {
-              title: "Laravel For Beginners",
+              title: "Laravel Essentials",
               desc:
                 "Learn Laravel fundamentals and more, build a blog application with tags, top posts, images, avatars, translations and more!",
               time: "33",
@@ -101995,7 +101907,7 @@ var render = function() {
           _vm._v(" "),
           _c("course-list-item", {
             attrs: {
-              title: "Laravel REST with Vue.js",
+              title: "Laravel REST + Vue.js",
               desc:
                 "Learn how to mix Laravel with Vue. Build a hotel booking app with user accounts, reviews and owner panel.",
               time: "18",
@@ -102507,15 +102419,19 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "mt-4 pt-2 text-sm text-gray-600" }, [
-            _vm._v("More from Docker")
-          ]),
+          _c(
+            "div",
+            {
+              staticClass: "mt-4 pt-2 text-sm text-gray-600 dark:text-gray-400"
+            },
+            [_vm._v("More from Docker")]
+          ),
           _vm._v(" "),
           _c(
             "div",
             {
               staticClass:
-                "mt-2 pt-2 text-sm text-gray-400 border-t border-gray-100"
+                "mt-2 pt-2 text-sm text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-gray-700"
             },
             [_vm._v("Docker Compose Basics")]
           ),
@@ -102524,32 +102440,53 @@ var render = function() {
             "div",
             {
               staticClass:
-                "mt-2 pt-2 text-sm text-gray-400 border-t border-gray-100"
+                "mt-2 pt-2 text-sm text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-gray-700"
             },
             [_vm._v("Running MySQL Locally using Docker")]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-4 pt-2 text-sm text-gray-600" }, [
-            _vm._v("Related")
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "mt-2 pt-2 text-sm text-gray-400 border-t border-gray-100"
-            },
-            [_vm._v("Docker Compose Basics")]
           ),
           _vm._v(" "),
           _c(
             "div",
             {
-              staticClass:
-                "mt-2 pt-2 text-sm text-gray-400 border-t border-gray-100"
+              staticClass: "mt-4 pt-2 text-sm text-gray-600 dark:text-gray-400"
             },
-            [_vm._v("Running MySQL Locally using Docker")]
-          )
+            [_vm._v("Related")]
+          ),
+          _vm._v(" "),
+          _vm.$apollo.loading
+            ? _c("div", { staticClass: "animate-pulse mt-4" }, [
+                _c("div", {
+                  staticClass:
+                    "w-full h-4 bg-gray-100 dark:bg-gray-700 rounded mb-4"
+                }),
+                _vm._v(" "),
+                _c("div", {
+                  staticClass:
+                    "w-full h-4 bg-gray-100 dark:bg-gray-700 rounded mb-4"
+                })
+              ])
+            : _c(
+                "div",
+                _vm._l(_vm.post.related, function(related) {
+                  return _c(
+                    "router-link",
+                    {
+                      key: "related-post-" + related.id,
+                      staticClass:
+                        "block mt-2 pt-2 text-sm text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-gray-700",
+                      attrs: {
+                        to: {
+                          name: "post",
+                          params: { id: related.id },
+                          hash: "#top"
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(related.title))]
+                  )
+                }),
+                1
+              )
         ])
       ])
     ]
@@ -102725,24 +102662,21 @@ var render = function() {
         },
         [
           _c("img", {
-            staticClass: "w-full h-full",
+            staticClass: "w-full h-2/3 mr-2 md:block hidden",
             attrs: { src: "/storage/logos/" + _vm.logo, alt: "Author avatar" }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "mt-8" }, [
-            _c("div", [_vm._v(_vm._s(_vm.desc))]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-indigo-400" }, [
-              _vm._v("Learn more! →")
-            ])
-          ])
+          _c("div", { staticClass: "mt-4" }, [_vm._v(_vm._s(_vm.desc))])
         ]
       ),
       _vm._v(" "),
       _c("div", { staticClass: "flex space-x-2 text-sm md:text-base mt-8" }, [
         _c(
           "div",
-          { staticClass: "text-gray-600 dark:text-gray-300 flex items-center" },
+          {
+            staticClass:
+              "text-gray-600 dark:text-gray-300 flex items-center text-xs lg:text-base"
+          },
           [
             _c(
               "svg",
@@ -102773,7 +102707,8 @@ var render = function() {
         _c(
           "div",
           {
-            staticClass: "text-gray-600 dark:text-gray-300 md:flex items-center"
+            staticClass:
+              "text-gray-600 dark:text-gray-300 md:flex items-center text-xs lg:text-base"
           },
           [
             _c(
@@ -102799,9 +102734,11 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "p-1 bg-indigo-100 rounded-md" }, [
-          _vm._v("Intermediate")
-        ])
+        _c(
+          "div",
+          { staticClass: "p-1 bg-indigo-100 rounded-md flex items-center" },
+          [_vm._v("Intermediate")]
+        )
       ])
     ]
   )
@@ -102866,7 +102803,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("footer", {
     staticClass:
-      "bg-indigo-400 dark:bg-indigo-600 w-100 pt-20 px-10 pb-20 bottom-0"
+      "bg-indigo-400 dark:bg-indigo-900 w-100 pt-20 px-10 pb-20 bottom-0"
   })
 }
 var staticRenderFns = []
@@ -102938,10 +102875,7 @@ var render = function() {
                   ref: "topicsMenu",
                   staticClass:
                     "text-gray-200 font-medium group cursor-pointer select-none",
-                  on: {
-                    mouseover: _vm.showTopicsMenu,
-                    mouseleave: _vm.closeTopicsMenu
-                  }
+                  on: { click: _vm.showTopicsMenu }
                 },
                 [
                   _vm._v("\n        Topics\n        "),
@@ -102981,20 +102915,10 @@ var render = function() {
                         rawName: "v-show",
                         value: _vm.topicsMenu,
                         expression: "topicsMenu"
-                      },
-                      {
-                        name: "on-clickaway",
-                        rawName: "v-on-clickaway",
-                        value: _vm.closeTopicsMenuNow,
-                        expression: "closeTopicsMenuNow"
                       }
                     ],
                     staticClass:
-                      "absolute mt-4 bg-white dark:bg-gray-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 dark:shadow-lg w-2/5",
-                    on: {
-                      mouseover: _vm.showTopicsMenu,
-                      mouseleave: _vm.closeTopicsMenu
-                    }
+                      "absolute mt-4 bg-white dark:bg-gray-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 dark:shadow-lg w-2/5"
                   },
                   [
                     _c("div", { staticClass: "grid grid-cols-3" }, [
@@ -103060,30 +102984,6 @@ var render = function() {
                                     "The progressive JavaScript frontend framework"
                                   )
                                 ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded-md"
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "font-medium text-gray-700 dark:text-gray-300"
-                                },
-                                [_vm._v("Nest.js")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "text-xs text-gray-500" },
-                                [_vm._v("Powerful Node.js backend framework")]
                               )
                             ]
                           ),
@@ -103156,7 +103056,16 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "py-1" }, [
                               _vm._v("Servers")
-                            ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "py-1 text-gray-400 dark:text-gray-500"
+                              },
+                              [_vm._v("More...")]
+                            )
                           ]
                         )
                       ])
@@ -103172,246 +103081,14 @@ var render = function() {
             "div",
             [
               _c(
-                "div",
+                "router-link",
                 {
-                  directives: [
-                    {
-                      name: "on-clickaway",
-                      rawName: "v-on-clickaway",
-                      value: _vm.closeCoursesMenuNow,
-                      expression: "closeCoursesMenuNow"
-                    }
-                  ],
-                  ref: "coursesMenu",
                   staticClass:
                     "text-gray-200 font-medium group cursor-pointer select-none",
-                  attrs: { to: { name: "courses" } },
-                  on: {
-                    mouseover: _vm.showCoursesMenu,
-                    mouseleave: _vm.closeCoursesMenu
-                  }
+                  attrs: { to: { name: "courses" } }
                 },
-                [
-                  _vm._v("\n        Courses\n        "),
-                  _c(
-                    "svg",
-                    {
-                      staticClass:
-                        "w-4 h-4 inline-block transition duration-300 ease-in-out transform-gpu group-hover:rotate-180",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        fill: "none",
-                        viewBox: "0 0 24 24",
-                        stroke: "currentColor"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round",
-                          "stroke-width": "2",
-                          d: "M19 9l-7 7-7-7"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("transition", { attrs: { name: "appear" } }, [
-                _c(
-                  "div",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.coursesMenu,
-                        expression: "coursesMenu"
-                      },
-                      {
-                        name: "on-clickaway",
-                        rawName: "v-on-clickaway",
-                        value: _vm.closeCoursesMenuNow,
-                        expression: "closeCoursesMenuNow"
-                      }
-                    ],
-                    staticClass:
-                      "absolute mt-4 bg-white dark:bg-gray-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 dark:shadow-lg w-2/5",
-                    on: {
-                      mouseover: _vm.showCoursesMenu,
-                      mouseleave: _vm.closeCoursesMenu
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "grid grid-cols-3" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "col-span-2 border-r border-gray-200 dark:border-gray-700 p-4"
-                        },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass:
-                                "block hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded-md",
-                              attrs: {
-                                to: {
-                                  name: "topic",
-                                  params: { slug: "laravel" },
-                                  hash: "#top"
-                                }
-                              }
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "font-medium text-gray-700 dark:text-gray-300"
-                                },
-                                [_vm._v("Laravel")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "text-xs text-gray-500" },
-                                [_vm._v("Most popular PHP framework")]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded-md"
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "font-medium text-gray-700 dark:text-gray-300"
-                                },
-                                [_vm._v("Vue.js")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "text-xs text-gray-500" },
-                                [
-                                  _vm._v(
-                                    "The progressive JavaScript frontend framework"
-                                  )
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded-md"
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "font-medium text-gray-700 dark:text-gray-300"
-                                },
-                                [_vm._v("Nest.js")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "text-xs text-gray-500" },
-                                [_vm._v("Powerful Node.js backend framework")]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "router-link",
-                            {
-                              staticClass:
-                                "block hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded-md",
-                              attrs: {
-                                to: {
-                                  name: "topic",
-                                  params: { slug: "docker" },
-                                  hash: "#top"
-                                }
-                              }
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "font-medium text-gray-700 dark:text-gray-300"
-                                },
-                                [_vm._v("Docker")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "text-xs text-gray-500" },
-                                [_vm._v("Run software in isolated containers")]
-                              )
-                            ]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "p-4" }, [
-                        _c(
-                          "div",
-                          { staticClass: "text-gray-700 dark:text-gray-300" },
-                          [_vm._v("Other Topics")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "text-gray-600 dark:text-gray-400 text-sm"
-                          },
-                          [
-                            _c("div", { staticClass: "py-1" }, [
-                              _vm._v("JavaScript")
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "py-1" }, [
-                              _vm._v("TypeScript")
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "py-1" }, [
-                              _vm._v("Node.js")
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "py-1" }, [_vm._v("PHP")]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "py-1" }, [
-                              _vm._v("Tailwind")
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "py-1" }, [
-                              _vm._v("Servers")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ]
-                )
-              ])
+                [_vm._v("Courses")]
+              )
             ],
             1
           )
@@ -103462,16 +103139,18 @@ var render = function() {
             "h4",
             {
               staticClass:
-                "text-2xl pb-3 font-semibold hover:underline dark:text-gray-200"
+                "text-5xl pb-3 font-semibold hover:underline dark:text-gray-200"
             },
             [_vm._v(_vm._s(_vm.post.title))]
           )
         ]
       ),
       _vm._v(" "),
-      _c("p", { staticClass: "text-gray-600 pb-3 dark:text-gray-400" }, [
-        _vm._v(_vm._s(_vm.post.lead))
-      ]),
+      _c(
+        "p",
+        { staticClass: "text-gray-600 pb-3 text-2xl dark:text-gray-400" },
+        [_vm._v(_vm._s(_vm.post.lead))]
+      ),
       _vm._v(" "),
       _c(
         "p",

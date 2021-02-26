@@ -2,7 +2,7 @@
   <div class="container mx-auto px-4 w-full md:w-4/5 my-12">
     <div class="grid grid-cols-2 gap-4 border-b border-gray-200 dark:border-gray-700 mb-8 pb-8">
       <course-list-item
-        title="Laravel For Beginners"
+        title="Laravel Essentials"
         desc="Learn Laravel fundamentals and more, build a blog application with tags, top posts, images, avatars, translations and more!"
         time="33"
         lessons="201"
@@ -10,7 +10,7 @@
       ></course-list-item>
 
       <course-list-item
-        title="Laravel REST with Vue.js"
+        title="Laravel REST + Vue.js"
         desc="Learn how to mix Laravel with Vue. Build a hotel booking app with user accounts, reviews and owner panel."
         time="18"
         lessons="101"

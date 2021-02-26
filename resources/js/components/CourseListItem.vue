@@ -4,14 +4,15 @@
       class="text-base md:text-xl lg:text-2xl text-gray-600 dark:text-gray-100 font-semibold pb-4"
     >{{ title }}</div>
     <div class="text-gray-600 dark:text-gray-300 text-sm lg:text-base">
-      <img :src="'/storage/logos/' + logo" alt="Author avatar" class="w-full h-full" />
-      <div class="mt-8">
-        <div>{{ desc }}</div>
-        <div class="text-indigo-400">Learn more! →</div>
-      </div>
+      <img
+        :src="'/storage/logos/' + logo"
+        alt="Author avatar"
+        class="w-full h-2/3 mr-2 md:block hidden"
+      />
+      <div class="mt-4">{{ desc }}</div>
     </div>
     <div class="flex space-x-2 text-sm md:text-base mt-8">
-      <div class="text-gray-600 dark:text-gray-300 flex items-center">
+      <div class="text-gray-600 dark:text-gray-300 flex items-center text-xs lg:text-base">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -28,7 +29,7 @@
         </svg>
         {{ time }} hours
       </div>
-      <div class="text-gray-600 dark:text-gray-300 md:flex items-center">
+      <div class="text-gray-600 dark:text-gray-300 md:flex items-center text-xs lg:text-base">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
@@ -41,7 +42,7 @@
         </svg>
         {{ lessons }} Lessons
       </div>
-      <div class="p-1 bg-indigo-100 rounded-md">Intermediate</div>
+      <div class="p-1 bg-indigo-100 rounded-md flex items-center">Intermediate</div>
     </div>
   </div>
 </template>

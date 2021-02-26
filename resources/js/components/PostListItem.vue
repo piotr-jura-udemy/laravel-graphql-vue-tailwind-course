@@ -1,10 +1,10 @@
 <template>
   <div>
     <router-link :to="{name: 'post', params: {id: post.id}, hash: '#top'}">
-      <h4 class="text-2xl pb-3 font-semibold hover:underline dark:text-gray-200">{{ post.title }}</h4>
+      <h4 class="text-5xl pb-3 font-semibold hover:underline dark:text-gray-200">{{ post.title }}</h4>
     </router-link>
 
-    <p class="text-gray-600 pb-3 dark:text-gray-400">{{ post.lead }}</p>
+    <p class="text-gray-600 pb-3 text-2xl dark:text-gray-400">{{ post.lead }}</p>
     <p class="pb-3 text-indigo-400">
       <router-link :to="{name: 'post', params: {id: post.id}, hash: '#top'}">Read more →</router-link>
     </p>

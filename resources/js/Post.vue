@@ -148,17 +148,27 @@
           </svg>
           Learn Laravel fundamentals in this 33+ hours course!
         </div>
-        <div class="mt-4 pt-2 text-sm text-gray-600">More from Docker</div>
-        <div class="mt-2 pt-2 text-sm text-gray-400 border-t border-gray-100">Docker Compose Basics</div>
+        <div class="mt-4 pt-2 text-sm text-gray-600 dark:text-gray-400">More from Docker</div>
         <div
-          class="mt-2 pt-2 text-sm text-gray-400 border-t border-gray-100"
+          class="mt-2 pt-2 text-sm text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-gray-700"
+        >Docker Compose Basics</div>
+        <div
+          class="mt-2 pt-2 text-sm text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-gray-700"
         >Running MySQL Locally using Docker</div>
 
-        <div class="mt-4 pt-2 text-sm text-gray-600">Related</div>
-        <div class="mt-2 pt-2 text-sm text-gray-400 border-t border-gray-100">Docker Compose Basics</div>
-        <div
-          class="mt-2 pt-2 text-sm text-gray-400 border-t border-gray-100"
-        >Running MySQL Locally using Docker</div>
+        <div class="mt-4 pt-2 text-sm text-gray-600 dark:text-gray-400">Related</div>
+        <div v-if="$apollo.loading" class="animate-pulse mt-4">
+          <div class="w-full h-4 bg-gray-100 dark:bg-gray-700 rounded mb-4"></div>
+          <div class="w-full h-4 bg-gray-100 dark:bg-gray-700 rounded mb-4"></div>
+        </div>
+        <div v-else>
+          <router-link
+            v-for="related in post.related"
+            :key="`related-post-${related.id}`"
+            :to="{name: 'post', params: {id: related.id}, hash: '#top'}"
+            class="block mt-2 pt-2 text-sm text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-gray-700"
+          >{{ related.title }}</router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -199,6 +209,10 @@ export default {
             }
             likes {
               created_at
+            }
+            related {
+              id
+              title
             }
           }
         }

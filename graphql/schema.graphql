@@ -47,6 +47,7 @@ type Post {
     updated_at: DateTime!
     author: User! @belongsTo
     topic: Topic! @belongsTo
+    related: [Post!]! @hasMany
     likes: [Like!]!
 }
 

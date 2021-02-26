@@ -1,24 +1,25 @@
-<h2 class="text-2xl font-medium text-gray-700 dark:text-gray-200" id="step-1">Step 1 - Create docker-compose.yml</h2>
-<div>The below <code class="bg-indigo-100 dark:bg-indigo-800 dark:text-gray-100 p-1 rounded-md text-xl">docker-compose.yml</code> defines 2 services. The MySQL image, using the specific version (8.0.23) and Adminer, a web-based database manager.</div>
-<div>It overrides the default command to enable password authentication. <code class="bg-indigo-100 dark:bg-indigo-800 dark:text-gray-100 p-1 rounded-md text-xl">restart</code> will make sure the container is restarted when anything goes wrong.</div>
-<div>The <code class="bg-indigo-100 dark:bg-indigo-800 dark:text-gray-100 p-1 rounded-md text-xl">MYSQL_ROOT_PASSWORD</code> environment variable specifies the <code class="bg-indigo-100 dark:bg-indigo-800 dark:text-gray-100 p-1 rounded-md text-xl">root</code> user password. Though not used here, you can also use <code class="bg-indigo-100 dark:bg-indigo-800 dark:text-gray-100 p-1 rounded-md text-xl">MYSQL_DATABASE</code> to create a database on startup. Full list of environment variables is available <a href="https://hub.docker.com/_/mysql" class="border-b-4 border-red-300 hover:bg-red-300  dark:hover:text-gray-700">here</a>.</div>
-<pre><code class="text-xl yaml"># docker-compose.yml
+## Step 1 - Create docker-compose.yml
+The below `docker-compose.yml` defines 2 services. The MySQL image, using the specific version (8.0.23) and Adminer, a web-based database manager.
+It overrides the default command to enable password authentication. `restart` will make sure the container is restarted when anything goes wrong.
+The `MYSQL_ROOT_PASSWORD` environment variable specifies the `root` user password. Though not used here, you can also use `MYSQL_DATABASE` to create a database on startup. Full list of environment variables is available <a href="https://hub.docker.com/_/mysql" class="border-b-4 border-red-300 hover:bg-red-300  dark:hover:text-gray-700">here</a>.</div>
+```yaml
+docker-compose.yml
 version: "3.8"
 
 services:
-  mysql:
-    image: mysql:8.0.23
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: example
-    ports:
-      - 3306:3306
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-</code></pre>
-<h2 class="text-2xl font-medium text-gray-700 dark:text-gray-200" id="step-2">Step 2 - Run docker-compose</h2>
-<div>When you start Docker containers based on images you've never used before, they need to be downloaded first. First time start-up might take a little while longer. Run <code class="bg-indigo-100 dark:bg-indigo-800 dark:text-gray-100 p-1 rounded-md text-xl">docker-compose up</code> to download and start MySQL & Adminer. Use the <code class="bg-indigo-100 dark:bg-indigo-800 dark:text-gray-100 p-1 rounded-md text-xl">-d</code> flag to start containers in the background. If you run containers in the background, you can stop them anytime by running <code class="bg-indigo-100 dark:bg-indigo-800 dark:text-gray-100 p-1 rounded-md text-xl">docker-compose stop</code>. Otherwise, use <code class="bg-indigo-100 dark:bg-indigo-800 dark:text-gray-100 p-1 rounded-md text-xl">Ctrl+C</code>.</div>
+mysql:
+image: mysql:8.0.23
+command: --default-authentication-plugin=mysql_native_password
+restart: always
+environment:
+MYSQL_ROOT_PASSWORD: example
+ports:
+- 3306:3306
+adminer:
+image: adminer
+restart: always
+ports:
+- 8080:8080
+``
+## Step 2 - Run docker-compose
+When you start Docker containers based on images you've never used before, they need to be downloaded first. First time start-up might take a little while longer. Run `docker-compose up` to download and start MySQL & Adminer. Use the `-d` flag to start containers in the background. If you run containers in the background, you can stop them anytime by running `docker-compose stop`. Otherwise, use `Ctrl+C`.
