@@ -1,5 +1,5 @@
 <template>
-  <div class="flex px-8 py-2 items-center text-gray-100 top-0 bg-indigo-900 dark:bg-indigo-900">
+  <div class="flex px-8 py-2 items-center text-gray-100 top-0 bg-indigo-900">
     <div class="mr-auto flex items-center space-x-8">
       <router-link :to="{name: 'index'}" class="text-xl font-medium mr-10">fado</router-link>
       <router-link :to="{name: 'index', hash: '#top'}" class="text-gray-200 font-medium">Posts</router-link>

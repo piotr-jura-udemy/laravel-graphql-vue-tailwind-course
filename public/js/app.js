@@ -6396,6 +6396,115 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SubscribeNewsletter.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SubscribeNewsletter.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      email: null,
+      subscribed: false,
+      error: false
+    };
+  },
+  methods: {
+    subscribe: function subscribe() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log("Subscribe!");
+                _this.subscribed = false;
+                _context.prev = 2;
+                _context.next = 5;
+                return _this.$apollo.mutate({
+                  mutation: graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n            mutation($email: String!) {\n              subscribe(email: $email) {\n                id\n                created_at\n              }\n            }\n          "]))),
+                  variables: {
+                    email: _this.email
+                  }
+                });
+
+              case 5:
+                _this.subscribed = true;
+                _context.next = 12;
+                break;
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](2);
+                console.log(_context.t0);
+                _this.error = true;
+
+              case 12:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[2, 8]]);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -101338,15 +101447,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _SubscribeNewsletter_vue_vue_type_template_id_b09c03f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SubscribeNewsletter.vue?vue&type=template&id=b09c03f0& */ "./resources/js/components/SubscribeNewsletter.vue?vue&type=template&id=b09c03f0&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _SubscribeNewsletter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SubscribeNewsletter.vue?vue&type=script&lang=js& */ "./resources/js/components/SubscribeNewsletter.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__.default)(
-  script,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _SubscribeNewsletter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
   _SubscribeNewsletter_vue_vue_type_template_id_b09c03f0___WEBPACK_IMPORTED_MODULE_0__.render,
   _SubscribeNewsletter_vue_vue_type_template_id_b09c03f0___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -101557,6 +101668,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PostListItem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PostListItem.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PostListItem.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PostListItem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/SubscribeNewsletter.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/SubscribeNewsletter.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SubscribeNewsletter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SubscribeNewsletter.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SubscribeNewsletter.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SubscribeNewsletter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -101934,7 +102061,7 @@ var render = function() {
                 "Learn Nest.js fundamentals and build a backend for an Events Managament app.",
               time: "6",
               lessons: "45",
-              logo: "api.png"
+              logo: "nestjs.png"
             }
           })
         ],
@@ -102736,7 +102863,10 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "p-1 bg-indigo-100 rounded-md flex items-center" },
+          {
+            staticClass:
+              "p-1 bg-indigo-100 dark:bg-indigo-900 rounded-md flex items-center"
+          },
           [_vm._v("Intermediate")]
         )
       ])
@@ -102803,7 +102933,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("footer", {
     staticClass:
-      "bg-indigo-400 dark:bg-indigo-900 w-100 pt-20 px-10 pb-20 bottom-0"
+      "bg-indigo-700 dark:bg-indigo-900 w-100 pt-20 px-10 pb-20 bottom-0"
   })
 }
 var staticRenderFns = []
@@ -102833,7 +102963,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "flex px-8 py-2 items-center text-gray-100 top-0 bg-indigo-900 dark:bg-indigo-900"
+        "flex px-8 py-2 items-center text-gray-100 top-0 bg-indigo-900"
     },
     [
       _c(
@@ -103230,48 +103360,88 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass:
+          "text-2xl font-medium mb-4 text-gray-700 dark:text-gray-200"
+      },
+      [_vm._v("Subscribe to newsletter")]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "mb-4 text-gray-700 dark:text-gray-200" }, [
+      _vm._v("Get latest articles, resources directly into your inbox weekly.")
+    ]),
+    _vm._v(" "),
+    !_vm.subscribed
+      ? _c("div", [
+          _c(
+            "form",
+            {
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.subscribe($event)
+                }
+              }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.email,
+                    expression: "email"
+                  }
+                ],
+                staticClass:
+                  "mr-2 border-2 border-gray-200 dark:border-gray-700 rounded-md dark:bg-gray-700 dark:text-gray-200",
+                attrs: { type: "text" },
+                domProps: { value: _vm.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.email = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "py-2 px-4 border rounded-md border-gray-200 dark:border-gray-700 dark:bg-gray-900 text-gray-600 dark:text-gray-100",
+                  attrs: { type: "submit" }
+                },
+                [_vm._v("Subscribe")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _vm.error
+            ? _c(
+                "div",
+                { staticClass: "text-red-700 dark:text-red-400 pt-2" },
+                [
+                  _vm._v(
+                    "Something went wrong. You might have already subscribed!"
+                  )
+                ]
+              )
+            : _vm._e()
+        ])
+      : _c("div", { staticClass: "pt-2 text-gray-700 dark:text-gray-300" }, [
+          _vm._v(
+            "👍  Thanks for subscribing! I promise we won't spam! You can unsubscribe at any time!"
+          )
+        ])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "div",
-        {
-          staticClass:
-            "text-xl font-medium mb-4 text-gray-700 dark:text-gray-200"
-        },
-        [_vm._v("Subscribe to newsletter")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "mb-4 text-gray-500 dark:text-gray-400" }, [
-        _vm._v(
-          "Get latest articles, resources directly into your inbox weekly."
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("input", {
-          staticClass:
-            "mr-2 border-2 border-gray-200 dark:border-gray-700 rounded-md dark:bg-gray-700",
-          attrs: { type: "text" }
-        }),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass:
-              "py-2 px-4 border rounded-md border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300"
-          },
-          [_vm._v("Subscribe")]
-        )
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

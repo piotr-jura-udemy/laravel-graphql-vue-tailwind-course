@@ -30,7 +30,7 @@
         desc="Learn Nest.js fundamentals and build a backend for an Events Managament app."
         time="6"
         lessons="45"
-        logo="api.png"
+        logo="nestjs.png"
       ></course-list-item>
     </div>
 

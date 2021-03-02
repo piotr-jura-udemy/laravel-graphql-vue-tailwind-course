@@ -6,7 +6,6 @@ use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Str;
 
@@ -47,7 +46,6 @@ class Post extends Model
 
         $content = preg_replace_callback('/<code>([^<]*)<\/code>/', function ($matches) {
           $code = $matches[1];
-          var_dump($matches);
           return "<code class=\"bg-indigo-50 dark:bg-indigo-900 dark:text-gray-100 p-1 rounded-md text-lg\">$code</code>";
         }, $content);
 

@@ -42,7 +42,7 @@
         </svg>
         {{ lessons }} Lessons
       </div>
-      <div class="p-1 bg-indigo-100 rounded-md flex items-center">Intermediate</div>
+      <div class="p-1 bg-indigo-100 dark:bg-indigo-900 rounded-md flex items-center">Intermediate</div>
     </div>
   </div>
 </template>
