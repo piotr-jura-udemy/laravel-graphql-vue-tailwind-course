@@ -6296,6 +6296,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var timeout = null;
 var els = [];
 
@@ -6310,24 +6316,27 @@ var els = [];
   },
   methods: {
     showTopicsMenu: function showTopicsMenu() {
-      this.coursesMenu = false;
+      console.log("Showing");
       clearTimeout(timeout);
-      this.hideSticky();
       this.topicsMenu = !this.topicsMenu;
-    },
-    closeTopicsMenu: function closeTopicsMenu() {
-      var _this = this;
 
-      console.log("hide");
-      timeout = setTimeout(function () {
-        _this.topicsMenu = false;
-
-        _this.showSticky();
-      }, 500);
+      if (this.topicsMenu) {
+        this.hideSticky();
+      } else {
+        this.showSticky();
+      }
     },
+    // closeTopicsMenu() {
+    //   console.log("hide");
+    //   timeout = setTimeout(() => {
+    //     this.topicsMenu = false;
+    //     this.showSticky();
+    //   }, 500);
+    // },
     closeTopicsMenuNow: function closeTopicsMenuNow() {
       console.log("hide now");
       this.topicsMenu = false;
+      this.showSticky();
     },
     hideSticky: function hideSticky() {
       if (0 === els.length) {
@@ -6340,6 +6349,8 @@ var els = [];
     },
     showSticky: function showSticky() {
       if (els.length) {
+        console.log(els);
+
         for (var i = 0; i < els.length; i++) {
           els.item(i).style.visibility = "visible";
         }
@@ -102963,7 +102974,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "flex px-8 py-2 items-center text-gray-100 top-0 bg-indigo-900"
+        "flex px-8 py-2 items-center text-gray-900 top-0 bg-white dark:bg-gray-900"
     },
     [
       _c(
@@ -102973,7 +102984,8 @@ var render = function() {
           _c(
             "router-link",
             {
-              staticClass: "text-xl font-medium mr-10",
+              staticClass:
+                "text-xl font-medium mr-10 hover:text-blue-500 dark:text-white dark:hover:text-blue-500",
               attrs: { to: { name: "index" } }
             },
             [_vm._v("fado")]
@@ -102982,7 +102994,8 @@ var render = function() {
           _c(
             "router-link",
             {
-              staticClass: "text-gray-200 font-medium",
+              staticClass:
+                "text-gray-900 hover:text-blue-500 dark:text-white dark:hover:text-blue-500 font-medium",
               attrs: { to: { name: "index", hash: "#top" } }
             },
             [_vm._v("Posts")]
@@ -103004,7 +103017,7 @@ var render = function() {
                   ],
                   ref: "topicsMenu",
                   staticClass:
-                    "text-gray-200 font-medium group cursor-pointer select-none",
+                    "text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-500 font-medium group cursor-pointer select-none",
                   on: { click: _vm.showTopicsMenu }
                 },
                 [
@@ -103048,7 +103061,7 @@ var render = function() {
                       }
                     ],
                     staticClass:
-                      "absolute mt-4 bg-white dark:bg-gray-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 dark:shadow-lg w-2/5"
+                      "absolute mt-4 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 dark:shadow-lg w-2/5"
                   },
                   [
                     _c("div", { staticClass: "grid grid-cols-3" }, [
@@ -103214,7 +103227,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "text-gray-200 font-medium group cursor-pointer select-none",
+                    "text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-500 font-medium group cursor-pointer select-none",
                   attrs: { to: { name: "courses" } }
                 },
                 [_vm._v("Courses")]
@@ -103434,11 +103447,18 @@ var render = function() {
               )
             : _vm._e()
         ])
-      : _c("div", { staticClass: "pt-2 text-gray-700 dark:text-gray-300" }, [
-          _vm._v(
-            "👍  Thanks for subscribing! I promise we won't spam! You can unsubscribe at any time!"
-          )
-        ])
+      : _c(
+          "div",
+          {
+            staticClass:
+              "p-5 text-green-800 bg-green-200 dark:bg-green-800 dark:text-green-200 rounded-md"
+          },
+          [
+            _vm._v(
+              "👍  Thanks for subscribing! I promise we won't spam! You can unsubscribe at any time!"
+            )
+          ]
+        )
   ])
 }
 var staticRenderFns = []

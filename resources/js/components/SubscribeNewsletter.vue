@@ -24,7 +24,7 @@
     </div>
     <div
       v-else
-      class="pt-2 text-gray-700 dark:text-gray-300"
+      class="p-5 text-green-800 bg-green-200 dark:bg-green-800 dark:text-green-200 rounded-md"
     >👍&nbsp;&nbsp;Thanks for subscribing! I promise we won't spam! You can unsubscribe at any time!</div>
   </div>
 </template>

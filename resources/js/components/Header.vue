@@ -1,15 +1,21 @@
 <template>
-  <div class="flex px-8 py-2 items-center text-gray-100 top-0 bg-indigo-900">
+  <div class="flex px-8 py-2 items-center text-gray-900 top-0 bg-white dark:bg-gray-900">
     <div class="mr-auto flex items-center space-x-8">
-      <router-link :to="{name: 'index'}" class="text-xl font-medium mr-10">fado</router-link>
-      <router-link :to="{name: 'index', hash: '#top'}" class="text-gray-200 font-medium">Posts</router-link>
+      <router-link
+        :to="{name: 'index'}"
+        class="text-xl font-medium mr-10 hover:text-blue-500 dark:text-white dark:hover:text-blue-500"
+      >fado</router-link>
+      <router-link
+        :to="{name: 'index', hash: '#top'}"
+        class="text-gray-900 hover:text-blue-500 dark:text-white dark:hover:text-blue-500 font-medium"
+      >Posts</router-link>
 
       <div>
         <div
           ref="topicsMenu"
           @click="showTopicsMenu"
           v-on-clickaway="closeTopicsMenuNow"
-          class="text-gray-200 font-medium group cursor-pointer select-none"
+          class="text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-500 font-medium group cursor-pointer select-none"
         >
           Topics
           <svg
@@ -30,7 +36,7 @@
 
         <transition name="appear">
           <div
-            class="absolute mt-4 bg-white dark:bg-gray-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 dark:shadow-lg w-2/5"
+            class="absolute mt-4 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 dark:shadow-lg w-2/5"
             v-show="topicsMenu"
           >
             <div class="grid grid-cols-3">
@@ -76,7 +82,7 @@
       <div>
         <router-link
           :to="{name: 'courses'}"
-          class="text-gray-200 font-medium group cursor-pointer select-none"
+          class="text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-500 font-medium group cursor-pointer select-none"
         >Courses</router-link>
       </div>
     </div>
@@ -100,21 +106,27 @@ export default {
   },
   methods: {
     showTopicsMenu() {
-      this.coursesMenu = false;
+      console.log("Showing");
       clearTimeout(timeout);
-      this.hideSticky();
       this.topicsMenu = !this.topicsMenu;
-    },
-    closeTopicsMenu() {
-      console.log("hide");
-      timeout = setTimeout(() => {
-        this.topicsMenu = false;
+
+      if (this.topicsMenu) {
+        this.hideSticky();
+      } else {
         this.showSticky();
-      }, 500);
+      }
     },
+    // closeTopicsMenu() {
+    //   console.log("hide");
+    //   timeout = setTimeout(() => {
+    //     this.topicsMenu = false;
+    //     this.showSticky();
+    //   }, 500);
+    // },
     closeTopicsMenuNow() {
       console.log("hide now");
       this.topicsMenu = false;
+      this.showSticky();
     },
     hideSticky() {
       if (0 === els.length) {
@@ -127,6 +139,7 @@ export default {
     },
     showSticky() {
       if (els.length) {
+        console.log(els);
         for (let i = 0; i < els.length; i++) {
           els.item(i).style.visibility = "visible";
         }

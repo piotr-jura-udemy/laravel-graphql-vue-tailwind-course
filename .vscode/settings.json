@@ -1,6 +1,6 @@
 {
-    "window.zoomLevel": 1,
-    "workbench.colorTheme": "Palenight Operator",
-    "editor.fontFamily": "'Operator Mono'",
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Default Dark+",
+    "editor.fontFamily": "Consolas,'Operator Mono'",
     "editor.tabSize": 2
 }

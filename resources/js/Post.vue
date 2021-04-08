@@ -229,7 +229,9 @@ export default {
         this.isLiked =
           null !== localStorage.getItem(`post-like-${this.post.id}`);
         this.likeCount = this.post.likes.length;
+
         setTimeout(() => hljs.highlightAll(), 1);
+
         setTimeout(() => {
           const headers = this.$refs.content.getElementsByTagName("H2");
           this.headers = [];
